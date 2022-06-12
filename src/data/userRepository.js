@@ -1,11 +1,36 @@
 import User from '../models/UserModel.js';
 
+
+export async function findByEmail(pEmail){
+  return await User.findOne(pEmail);
+}
+
+export async function isUserExisting(pEmail){
+  
+  const emailCount = await User.count({
+      where: {email: pEmail}
+    });
+  return emailCount == 0 ? false : true;
+    
+}
+
 const getUserList = async () => {
   try {
     return await User.findAll();
   } catch (error) {
     console.log(error);
   }
+};
+
+const getUserRole = async (pEmail) => {
+  const user = await User.findOne({
+  where: {
+    email: pEmail
+  }
+});
+
+return user.role.name;
+
 };
 
 const createUser = async (pUser) => {
@@ -16,7 +41,7 @@ const createUser = async (pUser) => {
   }
 };
 
-const updateUser = async (pId, pUser) => {
+async function updateUser(pId, pUser) {
   try {
     let user = await User.findByPk(pId);
     user.set({
@@ -26,7 +51,7 @@ const updateUser = async (pId, pUser) => {
   } catch (error) {
     console.log(error);
   }
-};
+}
 
 const deleteUser = async (pId) => {
   try {
@@ -41,6 +66,8 @@ const deleteUser = async (pId) => {
 };
 
 export default {
+  getUserRole,
+  isUserExisting,
   getUserList,
   createUser,
   updateUser,

@@ -1,24 +1,47 @@
 import express from 'express';
 import userService from '../services/UserService.js';
+// import * as userService from '../service/user-service.js';
 
 const router = express.Router();
 
+//auth0 dan gelen useri alip backend servicee gonderiyor. geriye servis status olarak geri bilgi veriyor
+router.post("/check", async (req, res)=>{
+    const auth0User = req.body;
+    const user = {
+        email: auth0User.email,
+        first_name: auth0User.given_name,
+        last_name: auth0User.family_name 
+    };
+
+    const status = await userService.checkUser(user); // firstname, lastname, email
+    res.status(200).send(status);
+})
+
+//tum userlari isteyen frontend istegini alip user servisten bekle
 router.get('/', async (req, res) => {
   const userList = await userService.getUsers();
   res.status(200).send(userList);
 });
 
-router.post('/', async (req, res) => {
-  let newUser = req.body;
-  // let userList = await userService.getUsers();
-
-  // let userCheck = userList.findIndex((user) => user.email === newUser.email);
-  // console.log(userCheck);
-  // if (userCheck === -1) {
-      const addedUser = await userService.addUser(newUser);
-  res.status(201).send(addedUser);
-  
+router.get('/', async (req, res) => {
+  const userInDatabase = await userService.getUserByEmail(pUser.email);
+  res.status(200).send(userInDatabase);
 });
+
+
+
+// router.post('/', async (req, res) => {
+//   let newUser = req.body;
+//   let userList = await userService.getUsers();
+
+//   let userCheck = userList.findIndex((user) => user.email === newUser.email);
+//   console.log(userCheck);
+//   if (userCheck === -1) {
+//       const addedUser = await userService.addUser(newUser);
+//   res.status(201).send(addedUser);
+//   }
+  
+// });
 
 // router.put('/:id', async (req, res) => {
 //   const id = Number(req.params.id);

@@ -1,5 +1,5 @@
-import { Sequelize } from 'sequelize';
-// import User from '../models/UserModel.js';
+import { Sequelize  } from 'sequelize';
+import User from '../models/UserModel.js';
 // import Company from '../models/CompanyModel.js';
 // import Branch from '../models/BranchModel.js';
 
@@ -8,13 +8,14 @@ const sequelize = new Sequelize('users', 'root', '50473524su', {
   dialect: 'mysql',
 });
 
+
 // Company.hasMany(Branch);
 // Branch.belongsTo(Company);
 
-async function connectToDatabase() {
+const connectToDatabase = async () => {
     try {
         await sequelize.authenticate();
-        //  await User.sync();
+        await User.sync();
         // await Branch.sync();
         console.log('Connected!');
     } catch (error) {
@@ -23,4 +24,3 @@ async function connectToDatabase() {
 }
 
 connectToDatabase();
-export default sequelize;

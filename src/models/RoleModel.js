@@ -1,5 +1,4 @@
 import { Sequelize , DataTypes } from 'sequelize';
-import Role from "./RoleModel.js";
 // import sequelize from "../commons/sequelize.js"
 
 const sequelize = new Sequelize('users', 'root', '50473524su', {
@@ -8,7 +7,7 @@ const sequelize = new Sequelize('users', 'root', '50473524su', {
 });
 
 
-const User = sequelize.define('User', {
+const Role = sequelize.define('Roles', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -18,27 +17,10 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  email: {
-      type: DataTypes.STRING,
-      allowNull:false,
-
-  },
  
-  roleId:{
-    type: DataTypes.INTEGER,
-    allowNull:false,
-  }
 
 });
 
 await sequelize.sync({ alter: true });
 
-User.hasOne(Role);
-Role.belongsTo(User, {
-  foreignKey: {
-    name: 'roleId'
-  }
-});
-
- 
-export default User;
+export default Role;
