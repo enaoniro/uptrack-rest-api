@@ -7,14 +7,12 @@ const router = express.Router();
 //auth0 dan gelen useri alip backend servicee gonderiyor. geriye servis status olarak geri bilgi veriyor
 router.post("/check", async (req, res)=>{
     const auth0User = req.body;
-    const user = {
+    const usermail = {
         email: auth0User.email,
-        first_name: auth0User.given_name,
-        last_name: auth0User.family_name 
     };
 
-    const status = await userService.checkUser(user); // firstname, lastname, email
-    res.status(200).send(status);
+    const user = await userService.checkUser(usermail);
+    res.status(200).send(user);
 })
 
 //tum userlari isteyen frontend istegini alip user servisten bekle

@@ -3,23 +3,20 @@ import User from '../models/UserModel.js';
 
 //auth0 dan gelen pUseri alip user repoda var mi yok mu sorgulamasi yapip varsa geriye 
 const checkUser = async (pUser) => {
-    // find user object by email in the database
-    // if the user is existing in the db then allow the user to log in (send role info back to the react)
-    // if the user is not existing then create the user in the db
-    const isUserExisting = await userRepository.isUserExisting(pUser.email)
-    if(isUserExisting){  
-    
-      
-    
-  
-      const user = await userRepository.getUserRole(pUser.email);
-      const role = user.role;
+  // find user object by email in the database
+  // if the user is existing in the db then allow the user to log in (send role info back to the react)
+  // if the user is not existing then create the user in the db
+  const isUserExisting = await userRepository.isUserExisting(pUser.email)
+  if(isUserExisting){  
 
-        return role;
-                   
-     };
+    return userRepository.getUserWithRole(pUser.email);
     
+              
+   };
+ 
+  
 }
+
 
 const getUserByEmail = async (pEmail) => {
 

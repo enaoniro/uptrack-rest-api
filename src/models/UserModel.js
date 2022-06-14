@@ -8,6 +8,7 @@ const sequelize = new Sequelize('users', 'root', '50473524su', {
 });
 
 
+
 const User = sequelize.define('User', {
   id: {
     type: DataTypes.INTEGER,
@@ -22,23 +23,17 @@ const User = sequelize.define('User', {
       type: DataTypes.STRING,
       allowNull:false,
 
-  },
- 
-  roleId:{
-    type: DataTypes.INTEGER,
-    allowNull:false,
   }
+},
+  {
+    timestamps: false,
+    createdAt: false
+  });
 
-});
+Role.hasMany(User);
+User.belongsTo(Role);
 
 await sequelize.sync({ alter: true });
-
-User.hasOne(Role);
-Role.belongsTo(User, {
-  foreignKey: {
-    name: 'roleId'
-  }
-});
 
  
 export default User;

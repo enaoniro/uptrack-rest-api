@@ -1,4 +1,5 @@
 import User from '../models/UserModel.js';
+import Role from "../models/RoleModel.js";
 
 
 export async function findByEmail(pEmail){
@@ -14,6 +15,16 @@ export async function isUserExisting(pEmail){
     
 }
 
+const getUserWithRole = async (pEmail) => {
+  return User.findOne({
+  where: {
+    email: pEmail
+  },
+  include: Role
+});
+
+};
+
 const getUserList = async () => {
   try {
     return await User.findAll();
@@ -22,16 +33,8 @@ const getUserList = async () => {
   }
 };
 
-const getUserRole = async (pEmail) => {
-  const user = await User.findOne({
-  where: {
-    email: pEmail
-  }
-});
 
-return user.role.name;
 
-};
 
 const createUser = async (pUser) => {
   try {
@@ -66,7 +69,7 @@ const deleteUser = async (pId) => {
 };
 
 export default {
-  getUserRole,
+  getUserWithRole,
   isUserExisting,
   getUserList,
   createUser,
