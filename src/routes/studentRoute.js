@@ -1,0 +1,42 @@
+import express from 'express';
+import studentService from '../services/StudentService.js';
+// import * as studentService from '../service/student-service.js';
+
+const router = express.Router();
+
+
+
+//tum studentlari isteyen frontend istegini alip student servisten bekle
+router.get('/', async (req, res) => {
+  const studentList = await studentService.getStudents();
+  res.status(200).send(studentList);
+});
+
+router.post('/', async (req, res) => {
+  let newStudent = req.body;
+  let studentList = await studentService.getStudents();
+
+  let existingstudent = studentList.findIndex((student) => student.email === newStudent.email);
+  console.log(existingstudent);
+  if (existingstudent === -1) {
+      const addedstudent = await studentService.addStudent(newStudent);
+  res.status(201).send(addedstudent);
+  }
+});
+  
+  export default router;
+
+// router.put('/:id', async (req, res) => {
+//   const id = Number(req.params.id);
+//   const company = req.body;
+//   const updatedCompany = await companyService.updateCompany(id, company);
+//   res.status(200).send(updatedCompany);
+// });
+
+// router.delete('/:id', async (req, res) => {
+//   const id = Number(req.params.id);
+//   await companyService.deleteCompany(id);
+//   res.status(200).send('Deleted!');
+// });
+
+
