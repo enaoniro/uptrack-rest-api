@@ -5,8 +5,8 @@ import './src/commons/sequelize.js';
 import userRoute from './src/routes/UserRoute.js';
 import studentRoute from './src/routes/StudentRoute.js';
 // import adminRoute from './src/routes/AdminRoute.js';
-// import cantonRoute from './src/routes/CantonRoute.js';
-// import groupRoute from './src/routes/GroupRoute.js';
+import cantonRoute from './src/routes/CantonRoute.js';
+import groupRoute from './src/routes/GroupRoute.js';
 
 
 const app = express();
@@ -24,8 +24,8 @@ app.use(bodyParser.json());
 // app.use('/api/v1/users');
 app.use('/api/v1/users', userRoute);
 // app.use('/api/v1/admin', adminRoute);
-// app.use('/api/v1/cantons', cantonRoute);
-//app.use('/api/v1/groups', groupRoute);
+app.use('/api/v1/cantons', cantonRoute);
+app.use('/api/v1/groups', groupRoute);
 app.use('/api/v1/students', studentRoute);
 
 app.listen(port, () => {
