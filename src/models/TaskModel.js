@@ -1,7 +1,5 @@
 import { Sequelize , DataTypes } from 'sequelize';
-import Task from "./TaskModel.js";
-import Group from "./GroupModel.js";
-import Target from './TargetModel.js';
+import Target from "./TargetModel.js";
 // import sequelize from "../commons/sequelize.js"
 
 const sequelize = new Sequelize('users', 'root', '50473524su', {
@@ -11,38 +9,46 @@ const sequelize = new Sequelize('users', 'root', '50473524su', {
 
 
 
-const Student = sequelize.define('Student', {
+const Task = sequelize.define('Task', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
   },
-  first_name: {
+  risale: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  last_name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  email: {
+  pirlanta: {
       type: DataTypes.STRING,
       allowNull:false,
+  },
+  namaz: {
+    type: DataTypes.STRING,
+    allowNull:true,
+},
+cevsen: {
+    type: DataTypes.STRING,
+    allowNull:true,
+},
+devamlilik: {
+    type: DataTypes.STRING,
+    allowNull:true,
+},
 
-  }
 },
   {
     timestamps: false,
     createdAt: false
   });
 
-Task.hasMany(Student);
-Student.belongsTo(Task);
-Student.belongsTo(Group);
-Target.hasMany(Student)
-Student.belongsTo(Target)
+
+// Target.hasMany(Task)
+// Task.belongsTo(Target)
+//  Target.belongsToMany(Task, {'through': 'task_target'});
+//  Task.belongsToMany(Target, {'through': 'task_target'});
 
 await sequelize.sync({ alter: true });
 
  
-export default Student;
+export default Task;

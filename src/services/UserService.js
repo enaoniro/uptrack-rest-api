@@ -18,10 +18,10 @@ const checkUser = async (pUser) => {
 }
 
 
-const getUserByEmail = async (pEmail) => {
+const getUserById = async (pId) => {
 
-  const userInDatabase = await userRepository.getUserByEmail(pEmail)
-  return userInDatabase;
+  const user = await userRepository.getUserById(pId)
+  return user;
 }
 
 
@@ -43,7 +43,7 @@ const deleteUser = async (pId) => {
 };
 
 export default {
-  getUserByEmail,
+  getUserById,
   checkUser,
   getUsers,
   addUser,

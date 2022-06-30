@@ -1,5 +1,6 @@
 import Student from '../models/StudentModel.js';
-// import Task from "../models/TaskModel.js";
+import Task from "../models/TaskModel.js";
+import Target from "../models/TargetModel.js";
 
 
 // export async function findByEmail(pEmail){
@@ -15,22 +16,23 @@ import Student from '../models/StudentModel.js';
     
 // }
 
-// const getUserWithRole = async (pEmail) => {
-//   return User.findOne({
-//   where: {
-//     email: pEmail
-//   },
-//   include: Role
-// });
+const getStudentWithTask = async (pId) => {
+  return Student.findOne({
+  where: {
+    id: pId
+  },
+  include: [Task]
+});
 
-//};
+};
 
 const getStudentList = async () => {
-  try {
-    return await Student.findAll();
-  } catch (error) {
-    console.log(error);
-  }
+  
+    return await Student.findAll({
+      include: [Task, Target]
+
+    });
+ 
 };
 
 
@@ -48,7 +50,9 @@ async function updateStudent(pId, pStudent) {
   try {
     let student = await Student.findByPk(pId);
     student.set({
-      name: pStudent.name,
+      first_name: pStudent.first_name,
+      last_name: pStudent.last_name,
+      email: pStudent.email,
     });
     return await student.save();
   } catch (error) {
@@ -69,7 +73,7 @@ const deleteStudent = async (pId) => {
 };
 
 export default {
-//   getStudentWithRole,
+ getStudentWithTask,
 //   isStudentExisting,
   getStudentList,
   createStudent,

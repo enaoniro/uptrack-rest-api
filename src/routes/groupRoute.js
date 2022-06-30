@@ -12,16 +12,22 @@ router.get('/', async (req, res) => {
   res.status(200).send(groupList);
 });
 
+// router.post('/', async (req, res) => {
+//   let newGroup = req.body;
+//   let groupList = await groupService.getGroups();
+
+//   let existinggroup = groupList.findIndex((group) => group.email === newGroup.email);
+//   console.log(existinggroup);
+//   if (existinggroup === -1) {
+//       const addedgroup = await groupService.addGroup(newGroup);
+//   res.status(201).send(addedgroup);
+//   }
+// });
+
 router.post('/', async (req, res) => {
   let newGroup = req.body;
-  let groupList = await groupService.getGroups();
-
-  let existinggroup = groupList.findIndex((group) => group.email === newGroup.email);
-  console.log(existinggroup);
-  if (existinggroup === -1) {
-      const addedgroup = await groupService.addGroup(newGroup);
+  const addedgroup = await groupService.addGroup(newGroup);
   res.status(201).send(addedgroup);
-  }
 });
   
   export default router;

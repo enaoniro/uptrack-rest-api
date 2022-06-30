@@ -1,5 +1,6 @@
 import { Sequelize , DataTypes } from 'sequelize';
-//import Task from "./TaskModel.js";
+import Canton from './CantonModel.js';
+import Student from "./StudentModel.js";
 // import sequelize from "../commons/sequelize.js"
 
 const sequelize = new Sequelize('users', 'root', '50473524su', {
@@ -26,8 +27,8 @@ const Group = sequelize.define('Group', {
     createdAt: false
   });
 
-// Group.hasMany(Task);
-// Task.belongsTo(Group);
+Group.belongsTo(Canton);
+
 
 await sequelize.sync({ alter: true });
 

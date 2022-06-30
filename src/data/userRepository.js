@@ -33,7 +33,13 @@ const getUserList = async () => {
   }
 };
 
-
+const getUserById = async (pId) => {
+  try {
+    return await User.findByPk(pId);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 
 const createUser = async (pUser) => {
@@ -70,6 +76,7 @@ const deleteUser = async (pId) => {
 
 export default {
   getUserWithRole,
+  getUserById,
   isUserExisting,
   getUserList,
   createUser,

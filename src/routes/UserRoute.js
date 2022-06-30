@@ -21,9 +21,10 @@ router.get('/', async (req, res) => {
   res.status(200).send(userList);
 });
 
-router.get('/', async (req, res) => {
-  const userInDatabase = await userService.getUserByEmail(pUser.email);
-  res.status(200).send(userInDatabase);
+router.get('/:id', async (req, res) => {
+  const id = Number(req.params.id);
+  const user = await userService.getUserById(id);
+  res.status(200).send(user);
 });
 
 

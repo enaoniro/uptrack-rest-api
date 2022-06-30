@@ -26,12 +26,12 @@ router.post('/', async (req, res) => {
   
   export default router;
 
-// router.put('/:id', async (req, res) => {
-//   const id = Number(req.params.id);
-//   const company = req.body;
-//   const updatedCompany = await companyService.updateCompany(id, company);
-//   res.status(200).send(updatedCompany);
-// });
+router.put('/:id', async (req, res) => {
+  const id = Number(req.params.id);
+  const student = req.body;
+  const updatedStudent = await studentService.updateStudent(id, student);
+  res.status(200).send(updatedStudent);
+});
 
 // router.delete('/:id', async (req, res) => {
 //   const id = Number(req.params.id);
