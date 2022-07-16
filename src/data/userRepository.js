@@ -54,7 +54,10 @@ async function updateUser(pId, pUser) {
   try {
     let user = await User.findByPk(pId);
     user.set({
-      name: pUser.name,
+      first_name: pUser.first_name,
+      last_name: pUser.last_name,
+      email: pUser.email,
+      RoleId: pUser.RoleId,
     });
     return await user.save();
   } catch (error) {

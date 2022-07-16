@@ -1,26 +1,22 @@
-import Task from '../models/TaskModel.js';
-import  Student from "../models/StudentModel.js";
-import Target from '../models/TargetModel.js';
-
-
+import Task from "../models/TaskModel.js";
+import Student from "../models/StudentModel.js";
+import Record from "../models/RecordModel.js";
 
 const getStudentWithRecord = async (pStudent) => {
   return Record.findOne({
-  where: {
-    id: pStudent.id
-  },
-  // include:  Target
-});
-
+    where: {
+      id: pStudent.id,
+    },
+    // include:  Target
+  });
 };
 
 const getRecordList = async () => {
-  
-    return await Record.findAll(
-      // include: Target
-    );
-    
-  };
+  return await Record
+    .findAll
+    // include: Target
+    ();
+};
 
 const createRecord = async (pRecord) => {
   try {
@@ -35,10 +31,10 @@ async function updateRecord(pId, pRecord) {
     let record = await Record.findByPk(pId);
     record.set({
       risale: pRecord.risale,
-      pirlanta:pRecord.pirlanta,
-      namaz:pRecord.namaz,
-      cevsen:pRecord.cevsen,
-      devamlilik:pRecord.devamlilik
+      pirlanta: pRecord.pirlanta,
+      namaz: pRecord.namaz,
+      cevsen: pRecord.cevsen,
+      devamlilik: pRecord.devamlilik,
     });
     return await record.save();
   } catch (error) {

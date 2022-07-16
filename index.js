@@ -1,16 +1,15 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import './src/commons/sequelize.js';
-import userRoute from './src/routes/UserRoute.js';
-import studentRoute from './src/routes/StudentRoute.js';
+import express from "express";
+import bodyParser from "body-parser";
+import cors from "cors";
+import "./src/commons/sequelize.js";
+import userRoute from "./src/routes/UserRoute.js";
+import studentRoute from "./src/routes/StudentRoute.js";
 // import adminRoute from './src/routes/AdminRoute.js';
-import cantonRoute from './src/routes/CantonRoute.js';
-import groupRoute from './src/routes/GroupRoute.js';
-import taskRoute from './src/routes/TaskRoute.js';
-import targetRoute from './src/routes/TargetRoute.js';
-// import recordRoute from './src/routes/RecordRoute.js';
-
+import cantonRoute from "./src/routes/CantonRoute.js";
+import groupRoute from "./src/routes/GroupRoute.js";
+import taskRoute from "./src/routes/TaskRoute.js";
+import targetRoute from "./src/routes/TargetRoute.js";
+import recordRoute from './src/routes/RecordRoute.js';
 
 const app = express();
 const port = 3001;
@@ -25,13 +24,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // app.use('/api/v1/users');
-app.use('/api/v1/users', userRoute);
-app.use('/api/v1/tasks', taskRoute);
-app.use('/api/v1/targets', targetRoute);
-// app.use('/api/v1/records', recordRoute);
-app.use('/api/v1/cantons', cantonRoute);
-app.use('/api/v1/groups', groupRoute);
-app.use('/api/v1/students', studentRoute);
+app.use("/api/v1/users", userRoute);
+app.use("/api/v1/tasks", taskRoute);
+app.use("/api/v1/targets", targetRoute);
+app.use('/api/v1/records', recordRoute);
+app.use("/api/v1/cantons", cantonRoute);
+app.use("/api/v1/groups", groupRoute);
+app.use("/api/v1/students", studentRoute);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

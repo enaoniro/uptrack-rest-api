@@ -12,6 +12,12 @@ router.get('/', async (req, res) => {
   res.status(200).send(studentList);
 });
 
+router.get('/:groupId', async (req, res) => {
+  const GroupId = req.params.groupId;
+  const studentList = await studentService.getStudentsByGroup(GroupId);
+  res.status(200).send(studentList);
+});
+
 router.post('/', async (req, res) => {
   let newStudent = req.body;
   let studentList = await studentService.getStudents();
@@ -33,10 +39,10 @@ router.put('/:id', async (req, res) => {
   res.status(200).send(updatedStudent);
 });
 
-// router.delete('/:id', async (req, res) => {
-//   const id = Number(req.params.id);
-//   await companyService.deleteCompany(id);
-//   res.status(200).send('Deleted!');
-// });
+router.delete('/:id', async (req, res) => {
+  const id = Number(req.params.id);
+  await studentService.deleteStudent(id);
+  res.status(200).send('Deleted!');
+});
 
 

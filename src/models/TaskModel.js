@@ -1,5 +1,7 @@
 import { Sequelize , DataTypes } from 'sequelize';
 import Target from "./TargetModel.js";
+import Student from "./StudentModel.js";
+import Record from './RecordModel.js';
 // import sequelize from "../commons/sequelize.js"
 
 const sequelize = new Sequelize('users', 'root', '50473524su', {
@@ -17,7 +19,7 @@ const Task = sequelize.define('Task', {
   },
   risale: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   pirlanta: {
       type: DataTypes.STRING,
@@ -35,6 +37,10 @@ devamlilik: {
     type: DataTypes.STRING,
     allowNull:true,
 },
+StudentId: {
+  type: DataTypes.INTEGER,
+  allowNull:true,
+},
 
 },
   {
@@ -42,9 +48,14 @@ devamlilik: {
     createdAt: false
   });
 
+  
 
-// Target.hasMany(Task)
-// Task.belongsTo(Target)
+// Student.hasMany(Task)
+// Task.belongsTo(Student)
+Task.hasMany(Target);
+Target.belongsTo(Task);
+Task.hasMany(Record);
+Record.belongsTo(Task);
 //  Target.belongsToMany(Task, {'through': 'task_target'});
 //  Task.belongsToMany(Target, {'through': 'task_target'});
 

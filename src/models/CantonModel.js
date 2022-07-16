@@ -19,6 +19,10 @@ const Canton = sequelize.define('Canton', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
  
 },
   {
@@ -26,8 +30,9 @@ const Canton = sequelize.define('Canton', {
     createdAt: false
   });
 
-// Canton.hasMany(Group);
 // Group.belongsTo(Canton);
+// Canton.hasMany(Group);
+
 
 await sequelize.sync({ alter: true });
 

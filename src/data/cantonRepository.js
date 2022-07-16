@@ -1,39 +1,14 @@
 import Canton from '../models/CantonModel.js';
-// import Task from "../models/TaskModel.js";
+import Group from '../models/GroupModel.js';
 
-
-// export async function findByEmail(pEmail){
-//   return await User.findOne(pEmail);
-// }
-
-// export async function isUserExisting(pEmail){
-  
-//   const emailCount = await User.count({
-//       where: {email: pEmail}
-//     });
-//   return emailCount == 0 ? false : true;
-    
-// }
-
-// const getUserWithRole = async (pEmail) => {
-//   return User.findOne({
-//   where: {
-//     email: pEmail
-//   },
-//   include: Role
-// });
-
-//};
 
 const getCantonList = async () => {
-  try {
-    return await Canton.findAll();
-  } catch (error) {
-    console.log(error);
-  }
+
+    return await Canton.findAll({
+      include: Group
+    });
+  
 };
-
-
 
 
 const createCanton = async (pCanton) => {
@@ -49,6 +24,7 @@ async function updateCanton(pId, pCanton) {
     let canton = await Canton.findByPk(pId);
     canton.set({
       name: pCanton.name,
+      email: pCanton.email,
     });
     return await canton.save();
   } catch (error) {

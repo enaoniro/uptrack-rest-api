@@ -1,5 +1,5 @@
 import { Sequelize , DataTypes } from 'sequelize';
-import Record from "./RecordModel.js";
+import Task from "./TaskModel.js";
 // import sequelize from "../commons/sequelize.js"
 
 const sequelize = new Sequelize('users', 'root', '50473524su', {
@@ -35,6 +35,10 @@ devamlilik: {
     type: DataTypes.INTEGER,
     allowNull:false,
 },
+TaskId: {
+  type: DataTypes.INTEGER,
+  allowNull:true,
+},
 
 },
   {
@@ -42,7 +46,8 @@ devamlilik: {
     createdAt: false
   });
 
-
+  // Task.hasMany(Record);
+  // Record.belongsTo(Task);
 // Record.hasMany(Task)
 // Task.belongsTo(Record)
 //  Record.belongsToMany(Task, {'through': 'task_Record'});

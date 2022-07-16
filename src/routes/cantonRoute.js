@@ -26,17 +26,17 @@ router.post('/', async (req, res) => {
   
   export default router;
 
-// router.put('/:id', async (req, res) => {
-//   const id = Number(req.params.id);
-//   const company = req.body;
-//   const updatedCompany = await companyService.updateCompany(id, company);
-//   res.status(200).send(updatedCompany);
-// });
+router.put('/:id', async (req, res) => {
+  const id = Number(req.params.id);
+  const canton = req.body;
+  const updatedCanton = await cantonService.updateCanton(id, canton);
+  res.status(200).send(updatedCanton);
+});
 
-// router.delete('/:id', async (req, res) => {
-//   const id = Number(req.params.id);
-//   await companyService.deleteCompany(id);
-//   res.status(200).send('Deleted!');
-// });
+router.delete('/:id', async (req, res) => {
+  const id = Number(req.params.id);
+  await cantonService.deleteCanton(id);
+  res.status(200).send('Deleted!');
+});
 
 

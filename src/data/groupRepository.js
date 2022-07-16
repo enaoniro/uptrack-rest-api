@@ -1,39 +1,15 @@
 import Group from '../models/GroupModel.js';
-// import Task from "../models/TaskModel.js";
+import Canton from '../models/CantonModel.js';
+import Student from '../models/StudentModel.js';
 
-
-// export async function findByEmail(pEmail){
-//   return await User.findOne(pEmail);
-// }
-
-// export async function isUserExisting(pEmail){
-  
-//   const emailCount = await User.count({
-//       where: {email: pEmail}
-//     });
-//   return emailCount == 0 ? false : true;
-    
-// }
-
-// const getUserWithRole = async (pEmail) => {
-//   return User.findOne({
-//   where: {
-//     email: pEmail
-//   },
-//   include: Role
-// });
-
-//};
 
 const getGroupList = async () => {
-  try {
-    return await Group.findAll();
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-
+  
+    return await Group.findAll({
+      include: Student
+    });
+  
+  };
 
 
 const createGroup = async (pGroup) => {
@@ -49,6 +25,8 @@ async function updateGroup(pId, pGroup) {
     let group = await Group.findByPk(pId);
     group.set({
       name: pGroup.name,
+      leader: pGroup.leader,
+      CantonId: pGroup.CantonId,
     });
     return await group.save();
   } catch (error) {
@@ -69,8 +47,6 @@ const deleteGroup = async (pId) => {
 };
 
 export default {
-//   getGroupWithRole,
-//   isGroupExisting,
   getGroupList,
   createGroup,
   updateGroup,

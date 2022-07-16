@@ -18,11 +18,11 @@ import studentRepository from '../data/studentRepository.js';
 // }
 
 
-// const getStudentByEmail = async (pEmail) => {
+const getStudentsByGroup = async (pGroupId) => {
 
-//   const StudentInDatabase = await studentRepository.getStudentByEmail(pEmail)
-//   return StudentInDatabase;
-// }
+  const StudentsInGroup = await studentRepository.getStudentByGroupId(pGroupId)
+  return StudentsInGroup;
+}
 
 
 const getStudents = async () => {
@@ -43,7 +43,7 @@ const deleteStudent = async (pId) => {
 };
 
 export default {
-//   getStudentByEmail,
+getStudentsByGroup,
 //   checkStudent,
   getStudents,
   addStudent,

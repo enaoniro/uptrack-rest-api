@@ -15,7 +15,11 @@ const User = sequelize.define('User', {
     autoIncrement: true,
     primaryKey: true,
   },
-  name: {
+  first_name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  last_name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -23,7 +27,12 @@ const User = sequelize.define('User', {
       type: DataTypes.STRING,
       allowNull:false,
 
-  }
+  },
+  RoleId: {
+    type: DataTypes.INTEGER,
+    allowNull:false,
+
+}
 },
   {
     timestamps: false,

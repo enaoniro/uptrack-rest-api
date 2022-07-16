@@ -1,6 +1,8 @@
 import Student from '../models/StudentModel.js';
 import Task from "../models/TaskModel.js";
 import Target from "../models/TargetModel.js";
+import Record from "../models/RecordModel.js";
+import Group from "../models/GroupModel.js";
 
 
 // export async function findByEmail(pEmail){
@@ -21,15 +23,23 @@ const getStudentWithTask = async (pId) => {
   where: {
     id: pId
   },
-  include: [Task]
+  include: [Task, Target, Record]
 });
+}
+
+const getStudentByGroupId = async (pId) => {
+  return Student.findAll({
+  where: {
+    GroupId: pId
+  
+}});
 
 };
 
 const getStudentList = async () => {
   
     return await Student.findAll({
-      include: [Task, Target]
+      include:Task
 
     });
  
@@ -53,6 +63,10 @@ async function updateStudent(pId, pStudent) {
       first_name: pStudent.first_name,
       last_name: pStudent.last_name,
       email: pStudent.email,
+      GroupId: pStudent.GroupId,
+      TaskId: pStudent.TaskId,
+      // TargetId: pStudent.TargetId,
+      // RecordId: pStudent.RecordId,
     });
     return await student.save();
   } catch (error) {
@@ -74,6 +88,7 @@ const deleteStudent = async (pId) => {
 
 export default {
  getStudentWithTask,
+ getStudentByGroupId,
 //   isStudentExisting,
   getStudentList,
   createStudent,

@@ -6,7 +6,7 @@ import Canton from '../models/CantonModel.js';
 import Group from '../models/GroupModel.js';
 import Task from '../models/TaskModel.js';
 import Target from '../models/TargetModel.js';
-// import Record from '../models/RecordModel.js';
+import Record from '../models/RecordModel.js';
 
 
 const sequelize = new Sequelize('users', 'root', '50473524su', {
@@ -217,7 +217,7 @@ const connectToDatabase = async () => {
         await Group.sync();
         await Task.sync();
         await Target.sync();
-        // await Record.sync();
+        await Record.sync();
         console.log('Connected!');
     } catch (error) {
         console.log('Error');

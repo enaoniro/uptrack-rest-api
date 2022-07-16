@@ -1,26 +1,22 @@
-import Task from '../models/TaskModel.js';
-import  Student from "../models/StudentModel.js";
-import Target from '../models/TargetModel.js';
-
-
+import Task from "../models/TaskModel.js";
+import Student from "../models/StudentModel.js";
+import Target from "../models/TargetModel.js";
 
 const getStudentWithTarget = async (pStudent) => {
   return Target.findOne({
-  where: {
-    id: pStudent.id
-  },
-  // include:  Target
-});
-
+    where: {
+      id: pStudent.id,
+    },
+    // include:  Target
+  });
 };
 
 const getTargetList = async () => {
-  
-    return await Target.findAll(
-      // include: Target
-    );
-    
-  };
+  return await Target
+    .findAll
+    // include: Target
+    ();
+};
 
 const createTarget = async (pTarget) => {
   try {
@@ -35,10 +31,10 @@ async function updateTarget(pId, pTarget) {
     let target = await Target.findByPk(pId);
     target.set({
       risale: pTarget.risale,
-      pirlanta:pTarget.pirlanta,
-      namaz:pTarget.namaz,
-      cevsen:pTarget.cevsen,
-      devamlilik:pTarget.devamlilik
+      pirlanta: pTarget.pirlanta,
+      namaz: pTarget.namaz,
+      cevsen: pTarget.cevsen,
+      devamlilik: pTarget.devamlilik,
     });
     return await target.save();
   } catch (error) {

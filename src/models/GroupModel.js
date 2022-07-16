@@ -16,7 +16,16 @@ const Group = sequelize.define('Group', {
     autoIncrement: true,
     primaryKey: true,
   },
+  CantonId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+
+  },
   name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  leader: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -27,7 +36,9 @@ const Group = sequelize.define('Group', {
     createdAt: false
   });
 
-Group.belongsTo(Canton);
+  Canton.hasMany(Group);
+  Group.belongsTo(Canton);
+// // Group.belongsTo(Canton);
 
 
 await sequelize.sync({ alter: true });

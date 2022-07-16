@@ -1,6 +1,6 @@
 import { Sequelize , DataTypes } from 'sequelize';
-import Task from "./TaskModel.js";
-// import sequelize from "../commons/sequelize.js"
+import Task from './TaskModel.js';
+
 
 const sequelize = new Sequelize('users', 'root', '50473524su', {
   host: 'localhost',
@@ -35,6 +35,10 @@ devamlilik: {
     type: DataTypes.INTEGER,
     allowNull:false,
 },
+TaskId: {
+  type: DataTypes.INTEGER,
+  allowNull:true,
+},
 
 },
   {
@@ -42,7 +46,8 @@ devamlilik: {
     createdAt: false
   });
 
-
+  // Task.hasMany(Target);
+  // Target.belongsTo(Task);
  
 
 await sequelize.sync({ alter: true });
