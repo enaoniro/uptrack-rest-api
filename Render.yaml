@@ -1,10 +1,12 @@
 services:
-  - type: web
-    name: uptrack-rest-api
+  - type: mysql
+    name: uptrack-mysql-db
     env:
-      - key: DATABASE_URL
-        value: mysql://${root}:${password}@${localhost}/${users}
-      - key: NODE_ENV
-        value: production
-    depends_on:
-      - service: uptrack_server
+      - key: DATABASE_HOST
+        value: localhost
+      - key: DATABASE_USERNAME
+        value: root
+      - key: DATABASE_PASSWORD
+        value: 50473524su
+      - key: DATABASE_NAME
+        value: users
