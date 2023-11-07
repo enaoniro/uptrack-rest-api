@@ -1,4 +1,4 @@
-import userRepository from "../data/UserRepository.js";
+import userRepository from "../data/userRepository.js";
 import User from "../models/UserModel.js";
 
 //auth0 dan gelen pUseri alip user repoda var mi yok mu sorgulamasi yapip varsa geriye
