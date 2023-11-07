@@ -1,4 +1,4 @@
-import TargetRepository from "../data/TargetRepository.js";
+import TargetRepository from "../data/targetRepository.js";
 import Target from "../models/TargetModel.js";
 
 //auth0 dan gelen pTargeti alip Target repoda var mi yok mu sorgulamasi yapip varsa geriye

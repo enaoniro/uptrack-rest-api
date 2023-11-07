@@ -1,4 +1,4 @@
-import TaskRepository from "../data/TaskRepository.js";
+import TaskRepository from "../data/taskRepository.js";
 import Task from "../models/TaskModel.js";
 
 //auth0 dan gelen pTaski alip Task repoda var mi yok mu sorgulamasi yapip varsa geriye

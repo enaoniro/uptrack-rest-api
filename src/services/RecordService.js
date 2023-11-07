@@ -1,4 +1,4 @@
-import RecordRepository from "../data/RecordRepository.js";
+import RecordRepository from "../data/recordRepository.js";
 import Record from "../models/RecordModel.js";
 
 //auth0 dan gelen pRecordi alip Record repoda var mi yok mu sorgulamasi yapip varsa geriye
