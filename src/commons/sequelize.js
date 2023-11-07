@@ -16,7 +16,7 @@ const password = process.env.REACT_APP_PASSWORD;
 
 
 const sequelize = new Sequelize('users', 'root', password, {
-  host: 'localhost',
+  host: '0.0.0.0',
   dialect: 'mysql',
 });
 
