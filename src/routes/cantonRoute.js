@@ -1,5 +1,5 @@
 import express from 'express';
-import cantonService from '../services/cantonService.js';
+import cantonService from '../services/CantonService.js';
 // import * as cantonService from '../service/student-service.js';
 
 const router = express.Router();
