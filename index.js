@@ -31,13 +31,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // app.use('/api/v1/users');
-app.use("https://upt-orl5.onrender.com/users", userRoute);
-app.use("https://upt-orl5.onrender.com/tasks", taskRoute);
-app.use("https://upt-orl5.onrender.com/targets", targetRoute);
-app.use('https://upt-orl5.onrender.com/records', recordRoute);
-app.use("https://upt-orl5.onrender.com/cantons", cantonRoute);
-app.use("https://upt-orl5.onrender.com/groups", groupRoute);
-app.use("https://upt-orl5.onrender.com/students", studentRoute);
+app.use("https://uptrack.onrender.com/users", userRoute);
+app.use("https://uptrack.onrender.com/tasks", taskRoute);
+app.use("https://uptrack.onrender.com/targets", targetRoute);
+app.use('https://uptrack.onrender.com/records', recordRoute);
+app.use("https://uptrack.onrender.com/cantons", cantonRoute);
+app.use("https://uptrack.onrender.com/groups", groupRoute);
+app.use("https://uptrack.onrender.com/students", studentRoute);
 
 app.listen(port|| 4000, () => {
   console.log(`Example app listening on port ${port}`);
