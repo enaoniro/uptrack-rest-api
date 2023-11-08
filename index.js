@@ -31,13 +31,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // app.use('/api/v1/users');
-app.use("https://uptrack.onrender.com/users", userRoute);
-app.use("https://uptrack.onrender.com/tasks", taskRoute);
-app.use("https://uptrack.onrender.com/targets", targetRoute);
-app.use('https://uptrack.onrender.com/records', recordRoute);
-app.use("https://uptrack.onrender.com/cantons", cantonRoute);
-app.use("https://uptrack.onrender.com/groups", groupRoute);
-app.use("https://uptrack.onrender.com/students", studentRoute);
+app.use("/api/v1/users", userRoute);
+app.use("/api/v1/tasks", taskRoute);
+app.use("/api/v1/targets", targetRoute);
+app.use('/api/v1/records', recordRoute);
+app.use("/api/v1/cantons", cantonRoute);
+app.use("/api/v1/groups", groupRoute);
+app.use("/api/v1/students", studentRoute);
 
 app.listen(port|| 4000, () => {
   console.log(`Example app listening on port ${port}`);
