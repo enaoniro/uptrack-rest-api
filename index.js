@@ -17,6 +17,10 @@ const app = express();
 const port = process.env.PORT || 4000;
 // mongoose.connect("mongodb+srv://can:50473524.Su@tasks.b85azwo.mongodb.net/?retryWrites=true&w=majority");
 
+
+app.use((req,res) => {
+  res.send("hello from backend")
+})
 // cors
 app.use(cors());
 
