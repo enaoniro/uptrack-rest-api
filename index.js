@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // app.use('/api/v1/users');
-app.use("/api/v1/users", userRoute);
+app.use("/api/v1/users", UserRoute);
 app.use("/api/v1/tasks", taskRoute);
 app.use("/api/v1/targets", targetRoute);
 app.use("/api/v1/records", recordRoute);
