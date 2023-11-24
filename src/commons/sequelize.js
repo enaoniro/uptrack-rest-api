@@ -15,12 +15,12 @@ import Task from "../models/TaskModel.js";
 const password = process.env.REACT_APP_PASSWORD;
 const env = process.env.NODE_ENV || 'development';
 
-const sequelize = new Sequelize(process.env.DB, process.env.DB_USER, password,{
-  host:process.env.DB_HOST,
-  dialect: "mysql",
+// const sequelize = new Sequelize(process.env.DB, process.env.DB_USER, password,{
+//   host:process.env.DB_HOST,
+//   dialect: "mysql",
   
-});
-
+// });
+const dbUrl = "mysql://root:G453F4HEEHh44f1H2Ebh23Ce64FfGGhB@viaduct.proxy.rlwy.net:17677/railway"
 // const dbUrl = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQL_ROOT_PASSWORD}@${process.env.RAILWAY_TCP_PROXY_DOMAIN}:${process.env.RAILWAY_TCP_PROXY_PORT}/${process.env.MYSQL_DATABASE}`
 
 // const sequelize = new Sequelize("users", "root", password, {
@@ -28,6 +28,7 @@ const sequelize = new Sequelize(process.env.DB, process.env.DB_USER, password,{
 //   dialect: "mysql",
 // });
 
+const sequelize = new Sequelize(dbUrl);
 
 const connectToDatabase = async () => {
   try {
