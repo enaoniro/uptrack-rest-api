@@ -11,7 +11,7 @@ import Task from "../models/TaskModel.js";
 
 const password = process.env.REACT_APP_PASSWORD;
 
-const sequelize = new Sequelize(`mysql://${{MYSQLUSER}}:${{MYSQL_ROOT_PASSWORD}}@${{RAILWAY_TCP_PROXY_DOMAIN}}:${{RAILWAY_TCP_PROXY_PORT}}/${{MYSQL_DATABASE}}`);
+const sequelize = new Sequelize(`mysql://${process.env.MYSQLUSER}:${process.env.MYSQL_ROOT_PASSWORD}@${process.env.RAILWAY_TCP_PROXY_DOMAIN}:${process.env.RAILWAY_TCP_PROXY_PORT}/${process.env.MYSQL_DATABASE}`);
 
 // const User = sequelize.define('User', {
 //     id: {
