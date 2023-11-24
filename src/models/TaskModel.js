@@ -1,3 +1,4 @@
+// import mongoose from 'mongoose';
 import { Sequelize, DataTypes } from "sequelize";
 import Student from "./StudentModel.js";
 import Target from "./TargetModel.js";
