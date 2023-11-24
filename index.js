@@ -3,7 +3,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import "./src/commons/sequelize.js";
-import userRoute from "./src/routes/userRoute.js";
+import userRoute from "./src/routes/UserRoute.js";
 import studentRoute from "./src/routes/studentRoute.js";
 import cantonRoute from "./src/routes/cantonRoute.js";
 import grupRoute from "./src/routes/grupRoute.js";
