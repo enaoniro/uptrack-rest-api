@@ -20,8 +20,8 @@ const env = process.env.NODE_ENV || 'development';
 //   dialect: "mysql",
   
 // });
-// const dbUrl = "mysql://root:G453F4HEEHh44f1H2Ebh23Ce64FfGGhB@viaduct.proxy.rlwy.net:17677/railway"
-const dbUrl = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQL_ROOT_PASSWORD}@${process.env.RAILWAY_TCP_PROXY_DOMAIN}:${process.env.RAILWAY_TCP_PROXY_PORT}/${process.env.MYSQL_DATABASE}`
+const dbUrl = "mysql://root:bCd5GEe-CDaECHfaEagd2bGHCd5Gf-3-@monorail.proxy.rlwy.net:17543/railway"
+// const dbUrl = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQL_ROOT_PASSWORD}@${process.env.RAILWAY_TCP_PROXY_DOMAIN}:${process.env.RAILWAY_TCP_PROXY_PORT}/${process.env.MYSQL_DATABASE}`
 
 // const sequelize = new Sequelize("users", "root", password, {
 //   host: "0.0.0.0",
