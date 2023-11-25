@@ -13,7 +13,7 @@ import Task from "../models/TaskModel.js";
 
 
 const password = process.env.REACT_APP_PASSWORD;
-const env = process.env.NODE_ENV || 'development';
+// const env = process.env.NODE_ENV || 'development';
 
 // const sequelize = new Sequelize(process.env.DB, process.env.DB_USER, password,{
 //   host:process.env.DB_HOST,
@@ -23,12 +23,12 @@ const env = process.env.NODE_ENV || 'development';
 const dbUrl = "mysql://root:bCd5GEe-CDaECHfaEagd2bGHCd5Gf-3-@monorail.proxy.rlwy.net:17543/railway"
 // const dbUrl = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQL_ROOT_PASSWORD}@${process.env.RAILWAY_TCP_PROXY_DOMAIN}:${process.env.RAILWAY_TCP_PROXY_PORT}/${process.env.MYSQL_DATABASE}`
 
-// const sequelize = new Sequelize("users", "root", password, {
-//   host: "0.0.0.0",
-//   dialect: "mysql",
-// });
+const sequelize = new Sequelize("mysql://root:bCd5GEe-CDaECHfaEagd2bGHCd5Gf-3-@monorail.proxy.rlwy.net:17543/railway", {
+  host: "0.0.0.0",
+  dialect: "mysql",
+});
 
-const sequelize = new Sequelize(dbUrl);
+// const sequelize = new Sequelize("mysql://root:bCd5GEe-CDaECHfaEagd2bGHCd5Gf-3-@monorail.proxy.rlwy.net:17543/railway");
 
 const connectToDatabase = async () => {
   try {
