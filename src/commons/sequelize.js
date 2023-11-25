@@ -33,14 +33,14 @@ const sequelize = new Sequelize("mysql://root:bCd5GEe-CDaECHfaEagd2bGHCd5Gf-3-@m
 const connectToDatabase = async () => {
   try {
     await sequelize.authenticate();
-    await User.sync();
-    await Role.sync();
-    await Canton.sync();
-    await Grup.sync();
-    await Student.sync();
-    await Task.sync();
-    await Target.sync();
-    await Record.sync();
+    // await User.sync();
+    // await Role.sync();
+    // await Canton.sync();
+    // await Grup.sync();
+    // await Student.sync();
+    // await Task.sync();
+    // await Target.sync();
+    // await Record.sync();
     console.log("Connected to database!");
   } catch (err) {
     console.log(err);
