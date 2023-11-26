@@ -1,12 +1,26 @@
 // import mongoose from 'mongoose';
 import { Sequelize, DataTypes } from "sequelize";
 import Grup from "./GrupModel.js";
+import mongoose, { model } from 'mongoose';
 // import sequelize from "../commons/sequelize.js"
 
 const sequelize = new Sequelize("users", "root", "50473524su", {
   host: "localhost",
   dialect: "mysql",
 });
+
+// const cantonSchema = new mongoose.Schema({
+//    name: {
+//     type:String,
+//     required:true
+//    },
+//    email: {
+//     type:String,
+//     required:true
+//    }
+// })
+
+// model.exports = mongoose.Model("Canton, cantonSchema")
 
 const Canton = sequelize.define(
   "Canton",

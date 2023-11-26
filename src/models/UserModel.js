@@ -19,7 +19,7 @@ const sequelize = new Sequelize('users', 'root', '50473524su', {
 //    },
 //    roles: {
 //     type:String,
-//     required:true
+//     default:"newuser"
 //    },
 //    active: {
 //     type:Boolean,
