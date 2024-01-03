@@ -59,7 +59,7 @@ const User = sequelize.define('User', {
 Role.hasMany(User);
 User.belongsTo(Role);
 
-// await sequelize.sync({ alter: true });
+await sequelize.sync({ alter: true });
 
  
 export default User;

@@ -80,6 +80,6 @@ Task.belongsTo(Student);
 //  Target.belongsToMany(Task, {'through': 'task_target'});
 //  Task.belongsToMany(Target, {'through': 'task_target'});
 
-// await sequelize.sync({ alter: true });
+await sequelize.sync({ alter: true });
 
 export default Task;

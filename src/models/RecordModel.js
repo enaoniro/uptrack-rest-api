@@ -55,6 +55,6 @@ Record.belongsTo(Task);
 //  Record.belongsToMany(Task, {'through': 'task_Record'});
 //  Task.belongsToMany(Record, {'through': 'task_Record'});
 
-// await sequelize.sync({ alter: true });
+await sequelize.sync({ alter: true });
 
 export default Record;
