@@ -24,6 +24,6 @@ const Role = sequelize.define("Roles", {
   createdAt: false
 });
 
-await sequelize.sync({ alter: true });
+// await sequelize.sync({ alter: true });
 
 export default Role;
