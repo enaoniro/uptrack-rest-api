@@ -80,6 +80,6 @@ Student.belongsTo(Grup);
 // Student.hasMany(Task);
 // Task.belongsTo(Student);
 
-await sequelize.sync({ alter: true });
+// await sequelize.sync({ alter: true });
 
 export default Student;

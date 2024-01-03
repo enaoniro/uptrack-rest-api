@@ -50,6 +50,6 @@ Grup.belongsTo(Canton);
 
 // // Grup.belongsTo(Canton);
 
-await sequelize.sync({ alter: true });
+// await sequelize.sync({ alter: true });
 
 export default Grup;

@@ -51,7 +51,7 @@ TaskId: {
   Target.belongsTo(Task);
  
 
-await sequelize.sync({ alter: true });
+// await sequelize.sync({ alter: true });
 
  
 export default Target;

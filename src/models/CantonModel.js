@@ -56,6 +56,6 @@ const Canton = sequelize.define(
 // Grup.belongsTo(Canton);
 // Canton.hasMany(Grup);
 
-await sequelize.sync({ alter: true });
+// await sequelize.sync({ alter: true });
 
 export default Canton;
